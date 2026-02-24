@@ -1,10 +1,346 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Heath Smith | Cloud Engineer</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Heath Smith — AWS-focused cloud engineering portfolio. Terraform, IaC, security-first architecture, and automation." />
+  <title>Heath Smith | Cloud Engineering Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Optional: if you want Google Fonts later, you can add one here. Keeping it local/fast for now. -->
+  <link rel="stylesheet" href="./styles.css" />
 </head>
+
 <body>
-  <h1>Highly Available Static Site via Terraform</h1>
-  <p>Deployed using AWS S3 + CloudFront + Route 53</p>
+  <!-- Top ambient gradient -->
+  <div class="ambient" aria-hidden="true"></div>
+
+  <header class="header">
+    <a class="brand" href="#top" aria-label="Home">
+      <span class="brand-mark" aria-hidden="true">🌊</span>
+      <span class="brand-text">Heath Smith</span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#certs">Certs</a>
+      <a href="#about">About</a>
+      <a class="btn btn-sm" href="#contact">Contact</a>
+    </nav>
+
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <p class="badge">Mid-Coast Maine • AWS • Terraform • Automation</p>
+          <h1>
+            Cloud engineering with a
+            <span class="accent">Maine coastal</span> calm — and production-grade discipline.
+          </h1>
+
+          <p class="lead">
+            I build secure, cost-aware AWS infrastructure using Infrastructure as Code.
+            This site showcases projects designed to demonstrate real-world architecture patterns
+            (global distribution, least-privilege IAM, resiliency, and clean delivery workflows).
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn" href="#projects">View portfolio</a>
+            <a class="btn btn-ghost" href="#contact">Get in touch</a>
+          </div>
+
+          <div class="hero-metrics" role="list" aria-label="Highlights">
+            <div class="metric" role="listitem">
+              <div class="metric-title">Focus</div>
+              <div class="metric-value">AWS + IaC</div>
+            </div>
+            <div class="metric" role="listitem">
+              <div class="metric-title">Strengths</div>
+              <div class="metric-value">Security • Reliability • Cost</div>
+            </div>
+            <div class="metric" role="listitem">
+              <div class="metric-title">Portfolio</div>
+              <div class="metric-value">Terraform-first builds</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-card-top">
+            <div class="dot dot-red"></div>
+            <div class="dot dot-yellow"></div>
+            <div class="dot dot-green"></div>
+            <div class="hero-card-title">Current build</div>
+          </div>
+
+          <div class="hero-card-body">
+            <h3>Highly Available Static Website</h3>
+            <p>
+              Private S3 origin + CloudFront (OAC) + ACM + Route 53.
+              Designed for secure global delivery with clean teardown and cost controls.
+            </p>
+
+            <ul class="bullets">
+              <li>Private bucket (no public access)</li>
+              <li>CloudFront Origin Access Control (SigV4)</li>
+              <li>ACM DNS validation automated via Route 53</li>
+              <li>HTTPS enforced + modern TLS</li>
+            </ul>
+
+            <div class="pill-row">
+              <span class="pill">S3</span>
+              <span class="pill">CloudFront</span>
+              <span class="pill">ACM</span>
+              <span class="pill">Route 53</span>
+              <span class="pill">Terraform</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Waves -->
+      <div class="waves" aria-hidden="true">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M0,40 C120,10 240,70 360,40 C480,10 600,70 720,40 C840,10 960,70 1080,40 C1140,25 1170,25 1200,30 L1200,120 L0,120 Z"></path>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section">
+      <div class="section-head">
+        <h2>Portfolio projects</h2>
+        <p>
+          Real architectures, documented decisions, and IaC you can review. Each project includes:
+          a clear problem statement, diagram, build steps, and lessons learned.
+        </p>
+      </div>
+
+      <div class="grid cards">
+        <!-- Project 1 -->
+        <article class="card">
+          <div class="card-top">
+            <span class="tag tag-primary">Live</span>
+            <span class="tag">Global Distribution</span>
+          </div>
+          <h3>Static Website + CloudFront (OAC)</h3>
+          <p>
+            A globally distributed static site with a private S3 origin behind CloudFront.
+            Includes ACM DNS validation and Route 53 aliasing for root + www.
+          </p>
+
+          <div class="card-meta">
+            <div>
+              <div class="meta-k">Architecture highlights</div>
+              <div class="meta-v">Private S3 • OAC • TLS • Cost controls</div>
+            </div>
+          </div>
+
+          <div class="card-actions">
+            <a class="btn btn-sm" href="#" aria-label="View repo">Repo (add link)</a>
+            <a class="btn btn-sm btn-ghost" href="#" aria-label="View diagram">Diagram (add link)</a>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="card">
+          <div class="card-top">
+            <span class="tag">Planned</span>
+            <span class="tag">Networking</span>
+          </div>
+          <h3>Multi-AZ 3-Tier VPC (Terraform)</h3>
+          <p>
+            A production-style VPC with public/private subnets, NAT design, ALB, autoscaling,
+            and least-privilege IAM roles—built entirely in Terraform with remote state.
+          </p>
+
+          <div class="card-meta">
+            <div>
+              <div class="meta-k">Architecture highlights</div>
+              <div class="meta-v">Multi-AZ • ALB • ASG • RDS patterns</div>
+            </div>
+          </div>
+
+          <div class="card-actions">
+            <a class="btn btn-sm" href="#">Repo (soon)</a>
+            <a class="btn btn-sm btn-ghost" href="#">Notes (soon)</a>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="card">
+          <div class="card-top">
+            <span class="tag">Planned</span>
+            <span class="tag">Serverless</span>
+          </div>
+          <h3>Event-Driven Image Pipeline</h3>
+          <p>
+            S3 triggers Lambda (Python) to transform and deliver assets. Includes IAM scoping,
+            CloudWatch logging, and lifecycle policies for cost-aware storage.
+          </p>
+
+          <div class="card-meta">
+            <div>
+              <div class="meta-k">Architecture highlights</div>
+              <div class="meta-v">S3 events • Lambda • IAM • Observability</div>
+            </div>
+          </div>
+
+          <div class="card-actions">
+            <a class="btn btn-sm" href="#">Repo (soon)</a>
+            <a class="btn btn-sm btn-ghost" href="#">Roadmap (soon)</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="callout">
+        <div class="callout-inner">
+          <h3>What makes these “portfolio-grade”</h3>
+          <ul>
+            <li><strong>IaC-first:</strong> Terraform structure mirrors real teams (separated files, consistent tagging).</li>
+            <li><strong>Security posture:</strong> private origins, least privilege, explicit trust boundaries.</li>
+            <li><strong>Operational thinking:</strong> teardown steps, cost controls, and documented tradeoffs.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section section-alt">
+      <div class="section-head">
+        <h2>Skills</h2>
+        <p>Core areas I focus on while building and operating cloud infrastructure.</p>
+      </div>
+
+      <div class="grid skills">
+        <div class="skill">
+          <h3>Infrastructure as Code</h3>
+          <p>Terraform modules, remote state patterns, clean diffs, and repeatable deployments.</p>
+        </div>
+        <div class="skill">
+          <h3>Networking & Delivery</h3>
+          <p>VPC design, routing, security groups, CloudFront caching, DNS patterns.</p>
+        </div>
+        <div class="skill">
+          <h3>Security</h3>
+          <p>Least privilege IAM, private origins, encryption, and guardrails.</p>
+        </div>
+        <div class="skill">
+          <h3>Reliability</h3>
+          <p>Multi-AZ architecture, failure modes, and practical operational runbooks.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certs -->
+    <section id="certs" class="section">
+      <div class="section-head">
+        <h2>Certifications</h2>
+        <p>Current and in-progress certifications that support the portfolio work.</p>
+      </div>
+
+      <div class="grid certs">
+        <div class="cert card">
+          <h3>AWS Certified Solutions Architect – Associate</h3>
+          <p class="muted">SAA-C03 • In progress / near completion</p>
+          <p>
+            Focus areas: networking, security, storage, compute, resiliency, and cost-aware architecture.
+          </p>
+        </div>
+
+        <div class="cert card">
+          <h3>Next up</h3>
+          <p class="muted">Portfolio-driven progression</p>
+          <p>
+            Expanding into CI/CD workflows, deeper security controls, and resiliency testing (RTO/RPO).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section section-alt">
+      <div class="section-head">
+        <h2>About</h2>
+        <p>
+          I’m building a portfolio that proves I can ship AWS infrastructure the way teams operate in production:
+          secure defaults, clean IaC, and clear documentation of tradeoffs.
+        </p>
+      </div>
+
+      <div class="about">
+        <div class="about-card card">
+          <h3>How I build</h3>
+          <ul class="bullets">
+            <li>Start with a real problem statement</li>
+            <li>Design architecture + document tradeoffs</li>
+            <li>Implement in Terraform with clean structure</li>
+            <li>Validate with plan, deploy, verify, teardown</li>
+          </ul>
+        </div>
+
+        <div class="about-card card">
+          <h3>What you’ll see in each repo</h3>
+          <ul class="bullets">
+            <li>README with “why” decisions</li>
+            <li>Architecture diagram</li>
+            <li>Deployment steps + teardown steps</li>
+            <li>Cost notes + security considerations</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section">
+      <div class="section-head">
+        <h2>Contact</h2>
+        <p>Drop in links now, or keep placeholders until you’re ready.</p>
+      </div>
+
+      <div class="grid contact">
+        <a class="contact-card card" href="#" aria-label="GitHub link">
+          <div class="contact-k">GitHub</div>
+          <div class="contact-v">Add your profile URL</div>
+        </a>
+
+        <a class="contact-card card" href="#" aria-label="LinkedIn link">
+          <div class="contact-k">LinkedIn</div>
+          <div class="contact-v">Add your profile URL</div>
+        </a>
+
+        <a class="contact-card card" href="mailto:you@example.com" aria-label="Email link">
+          <div class="contact-k">Email</div>
+          <div class="contact-v">you@example.com</div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <div class="footer-brand">🌊 Heath Smith</div>
+        <div class="muted">Built in Maine. Delivered globally.</div>
+      </div>
+
+      <div class="footer-right muted">
+        <span>© <span id="year"></span></span>
+        <span class="dot-sep">•</span>
+        <span>hmsdev.click</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./app.js"></script>
 </body>
 </html>
