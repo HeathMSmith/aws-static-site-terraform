@@ -1,26 +1,28 @@
 # Highly Available Static Website on AWS (Terraform)
 
-A production-grade static website architecture deployed on AWS using Terraform, designed with security, scalability, and cost-efficiency as first-class concerns.
+A production-grade static website architecture deployed on AWS using Terraform, designed with **security, scalability, and multi-environment infrastructure practices**.
 
-This project demonstrates real-world cloud architecture patterns including private origins, CDN distribution, DNS integration, and automated infrastructure provisioning.
+This project demonstrates real-world cloud architecture patterns including **private origins, CDN distribution, DNS integration, and environment-based infrastructure management**.
 
 ---
 
-## What This Project Demonstrates
+##  What This Project Demonstrates
 
 - Secure static hosting using **private S3 + CloudFront**
 - Global content delivery via **AWS edge locations**
 - HTTPS with **ACM-managed certificates**
 - DNS routing using **Route 53 alias records**
+- **Multi-environment infrastructure (dev/prod)**
 - Infrastructure as Code using **Terraform best practices**
+- Environment isolation and reusable configuration patterns
 
 ---
 
-## Architecture Overview
+##  Architecture Overview
 
 User → Route 53 → CloudFront → S3 (private bucket)
 
-### Components
+### Core AWS Services
 
 - **Amazon S3**
   - Hosts static assets
@@ -39,28 +41,77 @@ User → Route 53 → CloudFront → S3 (private bucket)
 
 ---
 
-## Security Design
+##  Environment Strategy
 
-- S3 bucket is **not publicly accessible**
-- Access restricted via **CloudFront Origin Access Control**
-- HTTPS enforced at the edge
-- No direct origin exposure
+This project is structured to support **multiple isolated environments**, enabling safe development and production deployments.
+
+### Environments
+
+- **dev**
+  - Used for testing and iteration
+  - Lower-cost, rapid deployment cycles
+
+- **prod**
+  - Production-ready configuration
+  - Stable and optimized for reliability
+
+Each environment maintains:
+- Separate Terraform state
+- Independent resource naming
+- Environment-specific variables
 
 ---
 
-## Cost Optimization
+##  Project Structure
+
+```
+.
+├── site/                      # Static frontend assets
+├── terraform/
+│   ├── modules/               # Reusable infrastructure modules
+│   ├── environments/
+│   │   ├── dev/
+│   │   └── prod/
+│   └── backend.tf             # Remote state configuration (optional)
+```
+
+---
+
+##  Security Design
+
+- S3 bucket is **not publicly accessible**
+- Access restricted via **CloudFront Origin Access Control (OAC)**
+- HTTPS enforced at the edge
+- No direct origin exposure
+- Environment isolation prevents cross-environment impact
+
+---
+
+##  Cost Optimization
 
 - S3 storage: minimal cost
 - CloudFront: free tier eligible for low traffic
-- Route 53: ~$0.50/month
+- Route 53: ~$0.50/month per hosted zone
 - ACM: free
 
 ---
 
-## ⚙️ Deployment
+##  Deployment
+
+### Deploy to Dev
 
 ```bash
-cd terraform
+cd terraform/environments/dev
+
+terraform init
+terraform plan -out=tfplan
+terraform apply tfplan
+```
+
+### Deploy to Prod
+
+```bash
+cd terraform/environments/prod
 
 terraform init
 terraform plan -out=tfplan
@@ -69,25 +120,40 @@ terraform apply tfplan
 
 ---
 
-## 📁 Project Structure
-
-```
-.
-├── site/          # Static frontend assets
-├── terraform/     # Infrastructure as Code
-```
-
----
-
-## 🧪 Key Learnings
+##  Key Learnings
 
 - Implementing secure S3 origins using CloudFront OAC
 - Managing DNS validation for ACM certificates
-- Understanding CloudFront + Route 53 integration
-- Structuring Terraform for maintainability
+- Designing multi-environment Terraform architectures
+- Structuring reusable infrastructure modules
+- Separating state and configuration per environment
+- Applying production-grade IaC workflows
 
 ---
 
-## 📸 Demo
+##  Demo
 
 _Add screenshot of deployed site here_
+
+---
+
+##  Future Enhancements
+
+- CI/CD pipeline using GitHub Actions + OIDC
+- Automated cache invalidation on deploy
+- Custom error pages via CloudFront
+- WAF integration for edge security
+- Logging and monitoring (CloudFront + S3 access logs)
+
+---
+
+##  Live Demo
+
+https://dev.hmsdev.click  
+https://www.hmsdev.click
+
+---
+
+##  Tech Stack
+
+**AWS | Terraform | CloudFront | S3 | Route 53 | ACM**
