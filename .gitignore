@@ -1,0 +1,59 @@
+#########################################
+# Terraform
+#########################################
+
+# Terraform working directory
+**/.terraform/*
+
+# Terraform state files
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+
+# Crash logs
+crash.log
+
+# Override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Dependency lock file (optional — see note below)
+# .terraform.lock.hcl
+
+#########################################
+# Variables / Secrets
+#########################################
+
+*.tfvars
+*.tfvars.json
+*.auto.tfvars
+*.auto.tfvars.json
+terraform.tfvars
+
+#########################################
+# Environment Files
+#########################################
+
+.env
+.env.*
+
+#########################################
+# OS / Editor Files
+#########################################
+
+# macOS
+.DS_Store
+
+# VS Code
+.vscode/
+
+# JetBrains
+.idea/
+
+#########################################
+# Logs
+#########################################
+
+*.log
