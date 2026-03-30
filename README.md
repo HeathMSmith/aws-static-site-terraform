@@ -100,7 +100,8 @@ Each environment maintains:
 
 ##  Deployment
 
-> Note: Ensure AWS credentials are configured before running Terraform commands.
+> Note: Ensure AWS credentials are configured before running Terraform commands. 
+> This project assumes deployment in the us-east-1 region for ACM compatibility with CloudFront.
 
 ### Deploy to Dev
 
