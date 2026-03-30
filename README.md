@@ -1,8 +1,8 @@
 # Highly Available Static Website on AWS (Terraform)
 
-A production-grade static website architecture deployed on AWS using Terraform, designed with **security, scalability, and multi-environment infrastructure practices**.
+A production-grade static website platform built on AWS using Terraform, designed with a strong emphasis on **security, scalability, and real-world infrastructure patterns**.
 
-This project demonstrates real-world cloud architecture patterns including **private origins, CDN distribution, DNS integration, and environment-based infrastructure management**.
+This project showcases modern cloud architecture practices including **private S3 origins, CloudFront edge distribution, HTTPS enforcement, and multi-environment infrastructure design (dev/prod)**.
 
 ---
 
@@ -20,9 +20,9 @@ This project demonstrates real-world cloud architecture patterns including **pri
 
 ##  Architecture Overview
 
-User → Route 53 → CloudFront → S3 (private bucket)
+All traffic is routed through CloudFront, ensuring the S3 origin remains private and inaccessible from the public internet.
 
-![Architecture](./assets/architecture/S3%20Static%20Website.png)
+![Architecture](./assets/architecture/static-site-architecture.png)
 
 ### Core AWS Services
 
@@ -84,7 +84,7 @@ Each environment maintains:
 - S3 bucket is **not publicly accessible**
 - Access restricted via **CloudFront Origin Access Control (OAC)**
 - HTTPS enforced at the edge
-- No direct origin exposure
+- Direct access to S3 is explicitly denied via bucket policy
 - Environment isolation prevents cross-environment impact
 
 ---
@@ -99,6 +99,8 @@ Each environment maintains:
 ---
 
 ##  Deployment
+
+> Note: Ensure AWS credentials are configured before running Terraform commands.
 
 ### Deploy to Dev
 
@@ -122,7 +124,7 @@ terraform apply tfplan
 
 ---
 
-##  Key Learnings
+## Engineering Highlights
 
 - Implementing secure S3 origins using CloudFront OAC
 - Managing DNS validation for ACM certificates
@@ -133,9 +135,18 @@ terraform apply tfplan
 
 ---
 
+## Why This Architecture Matters
+
+This project demonstrates how to securely serve static content at scale using AWS-native services while minimizing attack surface.
+
+By combining CloudFront with a private S3 origin and enforcing HTTPS at the edge, the architecture ensures:
+- No direct public access to backend storage
+- Low-latency global delivery
+- Scalable and cost-efficient infrastructure
+
 ##  Demo
 
-_Add screenshot of deployed site here_
+![Demo](./assets/screenshots/static-site.demo.png)
 
 ---
 
