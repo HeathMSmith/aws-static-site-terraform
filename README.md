@@ -22,6 +22,8 @@ This project demonstrates real-world cloud architecture patterns including **pri
 
 User → Route 53 → CloudFront → S3 (private bucket)
 
+![Architecture](./assets/architecture/S3%20Static%20Website.png)
+
 ### Core AWS Services
 
 - **Amazon S3**
