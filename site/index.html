@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Heath Smith — AWS-focused cloud engineering portfolio. Terraform, IaC, security-first architecture, and automation." />
+  <meta name="description"
+    content="Heath Smith — AWS-focused cloud engineering portfolio. Terraform, IaC, security-first architecture, and automation." />
   <title>Heath Smith | Cloud Engineering Portfolio</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,6 +32,7 @@
     <nav class="nav" aria-label="Primary">
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
+      <a href="#next">Next</a>
       <a href="#certs">Certs</a>
       <a href="#about">About</a>
       <a class="btn btn-sm" href="#contact">Contact</a>
@@ -83,28 +86,28 @@
             <div class="dot dot-red"></div>
             <div class="dot dot-yellow"></div>
             <div class="dot dot-green"></div>
-            <div class="hero-card-title">Current build</div>
+            <div class="hero-card-title">Current build • In progress</div>
           </div>
 
           <div class="hero-card-body">
-            <h3>Highly Available Static Website</h3>
+            <h3>AI-Powered Serverless Application</h3>
+
             <p>
-              Private S3 origin + CloudFront (OAC) + ACM + Route 53.
-              Designed for secure global delivery with clean teardown and cost controls.
+              Terraform-managed AWS architecture integrating Bedrock-based inference
+              with API Gateway and Lambda for scalable, secure AI-driven workflows.
             </p>
 
             <ul class="bullets">
-              <li>Private bucket (no public access)</li>
-              <li>CloudFront Origin Access Control (SigV4)</li>
-              <li>ACM DNS validation automated via Route 53</li>
-              <li>HTTPS enforced + modern TLS</li>
+              <li>Serverless inference via API Gateway + Lambda</li>
+              <li>IAM boundaries for secure model access</li>
+              <li>Terraform-managed infrastructure</li>
+              <li>Cost-aware and event-driven design</li>
             </ul>
 
             <div class="pill-row">
-              <span class="pill">S3</span>
-              <span class="pill">CloudFront</span>
-              <span class="pill">ACM</span>
-              <span class="pill">Route 53</span>
+              <span class="pill">Bedrock</span>
+              <span class="pill">Lambda</span>
+              <span class="pill">API Gateway</span>
               <span class="pill">Terraform</span>
             </div>
           </div>
@@ -114,7 +117,9 @@
       <!-- Waves -->
       <div class="waves" aria-hidden="true">
         <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path d="M0,40 C120,10 240,70 360,40 C480,10 600,70 720,40 C840,10 960,70 1080,40 C1140,25 1170,25 1200,30 L1200,120 L0,120 Z"></path>
+          <path
+            d="M0,40 C120,10 240,70 360,40 C480,10 600,70 720,40 C840,10 960,70 1080,40 C1140,25 1170,25 1200,30 L1200,120 L0,120 Z">
+          </path>
         </svg>
       </div>
     </section>
@@ -129,19 +134,75 @@
         </p>
       </div>
 
-    <div class="grid cards" id="repo-grid">
-      <!-- dynamically populated -->
-    </div>    
+      <div class="grid cards" id="repo-grid">
+        <!-- dynamically populated -->
+      </div>
 
       <div class="callout">
         <div class="callout-inner">
           <h3>What makes these “portfolio-grade”</h3>
           <ul>
-            <li><strong>IaC-first:</strong> Terraform structure mirrors real teams (separated files, consistent tagging).</li>
+            <li><strong>IaC-first:</strong> Terraform structure mirrors real teams (separated files, consistent
+              tagging).</li>
             <li><strong>Security posture:</strong> private origins, least privilege, explicit trust boundaries.</li>
             <li><strong>Operational thinking:</strong> teardown steps, cost controls, and documented tradeoffs.</li>
           </ul>
         </div>
+      </div>
+    </section>
+
+    <section id="next" class="section section-alt">
+      <div class="section-head">
+        <h2>What I’m Building Next</h2>
+        <p>
+          Focused areas I’m actively developing to deepen real-world AWS architecture and operational experience.
+        </p>
+      </div>
+
+      <div class="grid cards">
+
+        <div class="card">
+          <div class="card-top">
+            <span class="tag tag-primary">Next</span>
+            <span class="tag">AI</span>
+          </div>
+
+          <h3>AI-Powered Serverless Application (Terraform)</h3>
+
+          <p>
+            Building a serverless application leveraging AWS AI services (Bedrock / SageMaker)
+            deployed entirely via Terraform. Focused on integrating inference APIs, secure IAM boundaries,
+            and scalable event-driven architecture.
+          </p>
+
+          <div class="pill-row">
+            <span class="pill">AWS Bedrock</span>
+            <span class="pill">Lambda</span>
+            <span class="pill">API Gateway</span>
+            <span class="pill">Terraform</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <span class="tag tag-primary">Next</span>
+            <span class="tag">Resilience</span>
+          </div>
+
+          <h3>Failure Testing & Recovery Patterns</h3>
+
+          <p>
+            Simulating failure scenarios across multi-AZ architectures and validating recovery
+            strategies (RTO/RPO) with documented runbooks and architecture decisions.
+          </p>
+
+          <div class="pill-row">
+            <span class="pill">High Availability</span>
+            <span class="pill">Failover</span>
+            <span class="pill">Monitoring</span>
+            <span class="pill">Recovery</span>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -179,38 +240,49 @@
         <p>Current and in-progress certifications that support the portfolio work.</p>
       </div>
 
-    <div class="grid certs">
+      <div class="grid certs">
 
-  <div class="cert card">
-    <div class="cert-header">
-      <div>
-        <h3>AWS Certified Solutions Architect – Associate</h3>
-        <p class="muted">SAA-C03 • Earned</p>
+        <div class="cert card">
+          <div class="cert-header">
+            <div>
+              <h3>AWS Certified Solutions Architect – Associate</h3>
+              <p class="muted">SAA-C03 • Earned</p>
+            </div>
+
+            <div class="cert-badge">
+              <a href="https://www.credly.com/badges/12f8a7f5-ff17-4805-a679-6a49fc9bfbde/public_url" target="_blank">
+                <img src="./assets/aws-saa-badge.png" alt="AWS Certified Solutions Architect Associate Badge">
+              </a>
+              <div class="cert-verify">Verified via Credly</div>
+            </div>
+          </div>
+
+          <p>
+            Validated expertise in designing secure, resilient, and cost-optimized
+            architectures on AWS, including networking, storage, compute, and IAM best practices.
+          </p>
+        </div>
+
       </div>
+      <div class="cert card">
+        <div class="cert-header">
+          <div>
+            <h3>AWS Certified AI Practitioner</h3>
+            <p class="muted">AIF-C01 • In Progress</p>
 
-      <div class="cert-badge">
-        <a href="https://www.credly.com/badges/12f8a7f5-ff17-4805-a679-6a49fc9bfbde/public_url" target="_blank">
-          <img src="./assets/aws-saa-badge.png" alt="AWS Certified Solutions Architect Associate Badge">
-        </a>
-        <div class="cert-verify">Verified via Credly</div>
+            <p>
+              Developing foundational and practical knowledge of AWS AI services,
+              including model integration, prompt design, and real-world application
+              of generative AI within cloud-native architectures.
+            </p>
+          </div>
+
+          <div class="cert-badge">
+            <img src="./assets/aws-aif-c01-badge.png" alt="AWS Certified AI Practitioner Badge">
+            <div class="cert-verify">Targeting completion soon</div>
+          </div>
+        </div>
       </div>
-    </div>
-
-    <p>
-      Validated expertise in designing secure, resilient, and cost-optimized
-      architectures on AWS, including networking, storage, compute, and IAM best practices.
-    </p>
-  </div>
-
-  <div class="cert card">
-    <h3>Next up</h3>
-    <p class="muted">Portfolio-driven progression</p>
-    <p>
-      Expanding into CI/CD workflows, deeper security controls, and resiliency testing (RTO/RPO).
-    </p>
-  </div>
-
-</div>  
 
     </section>
 
@@ -255,24 +327,18 @@
       </div>
 
       <div class="grid contact">
-        <a class="contact-card card" 
-          href="https://github.com/HeathMSmith/" 
-          target="_blank" 
-          rel="noopener noreferrer">
+        <a class="contact-card card" href="https://github.com/HeathMSmith/" target="_blank" rel="noopener noreferrer">
           <div class="contact-k">GitHub</div>
           <div class="contact-v">github.com/HeathMSmith</div>
         </a>
 
-        <a class="contact-card card" 
-          href="https://www.linkedin.com/in/heath-m-smith/" 
-          target="_blank" 
+        <a class="contact-card card" href="https://www.linkedin.com/in/heath-m-smith/" target="_blank"
           rel="noopener noreferrer">
           <div class="contact-k">LinkedIn</div>
           <div class="contact-v">linkedin.com/in/heath-m-smith</div>
         </a>
 
-        <a class="contact-card card" 
-          href="mailto:heathsmith2009@gmail.com">
+        <a class="contact-card card" href="mailto:heathsmith2009@gmail.com">
           <div class="contact-k">Email</div>
           <div class="contact-v">heathsmith2009@gmail.com</div>
         </a>
@@ -297,4 +363,5 @@
 
   <script src="./app.js"></script>
 </body>
+
 </html>
