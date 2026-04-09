@@ -52,5 +52,5 @@ resource "aws_s3_object" "site_files" {
     json = "application/json"
     ico  = "image/x-icon"
   }, split(".", each.value)[length(split(".", each.value)) - 1], "application/octet-stream")
-  
+
 }
