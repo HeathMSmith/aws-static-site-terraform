@@ -200,7 +200,7 @@ terraform destroy
 
 ## Demo
 
-![Demo](./assets/screenshots/static-site.demo.png)
+![Demo](./assets/screenshots/static-site-demo.png)
 
 ---
 
