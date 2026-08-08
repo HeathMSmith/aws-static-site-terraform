@@ -1,4 +1,6 @@
 module "static_site" {
+  count = var.deploy_static_site ? 1 : 0
+
   source = "../../modules/static-site"
 
   providers = {
