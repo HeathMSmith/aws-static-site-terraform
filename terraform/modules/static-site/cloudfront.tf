@@ -92,6 +92,7 @@ resource "aws_s3_bucket_policy" "site" {
   policy = data.aws_iam_policy_document.bucket_policy.json
 }
 resource "aws_cloudfront_function" "redirect_to_www" {
+  count   = var.enable_apex_redirect ? 1 : 0
   name    = "redirect-to-www-${var.environment}"
   runtime = "cloudfront-js-1.0"
 
@@ -118,9 +119,10 @@ function handler(event) {
 EOF
 }
 resource "aws_cloudfront_distribution" "redirect" {
+  count   = var.enable_apex_redirect ? 1 : 0
   enabled = true
 
-  aliases = [var.domain_name]
+  aliases = var.enable_apex_redirect ? [var.domain_name] : []
 
   origin {
     domain_name = "www.example.com"
@@ -151,7 +153,7 @@ resource "aws_cloudfront_distribution" "redirect" {
     # CRITICAL: function attached here
     function_association {
       event_type   = "viewer-request"
-      function_arn = aws_cloudfront_function.redirect_to_www.arn
+      function_arn = aws_cloudfront_function.redirect_to_www[0].arn
     }
   }
 

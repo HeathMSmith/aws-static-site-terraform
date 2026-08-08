@@ -58,3 +58,19 @@ variable "environment" {
   description = "Environment name (dev or prod)"
   type        = string
 }
+
+variable "certificate_sans" {
+  description = "Subject Alternative Names for ACM certificate"
+  type        = list(string)
+}
+
+variable "enable_apex_redirect" {
+  description = "Whether to create the apex CloudFront redirect distribution and DNS records"
+  type        = bool
+  default     = true
+}
+
+variable "dns_alias_names" {
+  description = "Domain names for which Route 53 A and AAAA alias records are created"
+  type        = list(string)
+}

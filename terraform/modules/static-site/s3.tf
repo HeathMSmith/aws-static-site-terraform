@@ -60,4 +60,8 @@ resource "aws_s3_object" "site_files" {
     ico  = "image/x-icon"
   }, split(".", each.value)[length(split(".", each.value)) - 1], "application/octet-stream")
 
+  depends_on = [
+    aws_s3_bucket_versioning.site
+  ]
+
 }
