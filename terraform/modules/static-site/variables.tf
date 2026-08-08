@@ -33,7 +33,6 @@ variable "alternate_domain_names" {
 variable "hosted_zone_id" {
   description = "Route 53 Hosted Zone ID for the domain"
   type        = string
-  default     = "Z01454722VUNO8SQZYLZ8"
 }
 
 #########################################

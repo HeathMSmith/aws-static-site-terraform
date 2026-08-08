@@ -10,6 +10,8 @@ module "static_site" {
 
   domain_name            = "dev.hmsdev.click"
   alternate_domain_names = ["www.dev.hmsdev.click"]
+  dns_alias_names        = ["www.dev.hmsdev.click"]
+  certificate_sans       = ["www.dev.hmsdev.click"]
   hosted_zone_id         = var.hosted_zone_id
 
   site_bucket_name = var.site_bucket_name
