@@ -1,7 +1,7 @@
 resource "aws_acm_certificate" "site" {
   provider                  = aws.us_east_1
   domain_name               = var.domain_name
-  subject_alternative_names = var.alternate_domain_names
+  subject_alternative_names = var.certificate_sans
   validation_method         = "DNS"
   tags                      = var.tags
 
@@ -18,6 +18,8 @@ resource "aws_route53_record" "acm_validation" {
       value = dvo.resource_record_value
     }
   }
+
+  allow_overwrite = true
 
   zone_id = var.hosted_zone_id
   name    = each.value.name

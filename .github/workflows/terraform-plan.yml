@@ -1,0 +1,50 @@
+name: Terraform Plan (PR)
+
+on:
+  pull_request:
+    paths:
+      - "terraform/**"
+      - ".github/workflows/**"
+      - ".github/actions/**"
+  
+  workflow_dispatch:
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write
+      contents: read
+      pull-requests: write
+
+    defaults:
+      run:
+        working-directory: terraform/environments/dev
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Prepare Terraform Environment
+        uses: ./.github/actions/terraform-setup
+        with:
+          working-directory: terraform/environments/dev
+          terraform-version: "1.15.3"
+          aws-region: ${{ vars.AWS_REGION }}
+          role-to-assume: ${{ vars.AWS_ROLE_ARN }}
+          
+      # Capture output properly
+      - name: Terraform Plan
+        run: |
+          echo "### Terraform Plan Summary" > plan.txt
+          terraform plan -no-color | tee -a plan.txt
+
+      # Proper PR comment
+      - name: Comment Plan on PR
+        if: github.event_name == 'pull_request'
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          path: terraform/environments/dev/plan.txt
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -7,3 +7,8 @@ variable "region" {
 variable "site_bucket_name" {
   type = string
 }
+
+variable "deploy_static_site" {
+  type    = bool
+  default = false
+}
