@@ -74,3 +74,15 @@ variable "dns_alias_names" {
   description = "Domain names for which Route 53 A and AAAA alias records are created"
   type        = list(string)
 }
+
+variable "enable_apex_alias" {
+  description = "Whether the apex domain is attached as an alternate domain name to the redirect distribution"
+  type        = bool
+  default     = true
+}
+
+variable "enable_apex_dns" {
+  description = "Whether Route 53 apex A and AAAA records point to the redirect distribution"
+  type        = bool
+  default     = true
+}

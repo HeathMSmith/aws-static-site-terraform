@@ -1,5 +1,5 @@
 resource "aws_route53_record" "root_a" {
-  count = var.enable_apex_redirect ? 1 : 0
+  count = var.enable_apex_dns ? 1 : 0
 
   zone_id = var.hosted_zone_id
   name    = var.domain_name
@@ -13,7 +13,7 @@ resource "aws_route53_record" "root_a" {
 }
 
 resource "aws_route53_record" "root_aaaa" {
-  count = var.enable_apex_redirect ? 1 : 0
+  count = var.enable_apex_dns ? 1 : 0
 
   zone_id = var.hosted_zone_id
   name    = var.domain_name
@@ -52,15 +52,4 @@ resource "aws_route53_record" "www_aaaa" {
     zone_id                = aws_cloudfront_distribution.cdn.hosted_zone_id
     evaluate_target_health = false
   }
-}
-
-resource "aws_route53_record" "www_cloudfront_ownership" {
-  zone_id = var.hosted_zone_id
-  name    = "_www.hmsdev.click"
-  type    = "TXT"
-  ttl     = 60
-
-  records = [
-    "d3unb35rmr9g0x.cloudfront.net"
-  ]
 }

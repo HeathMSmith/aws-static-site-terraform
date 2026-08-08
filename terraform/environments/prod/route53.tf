@@ -14,7 +14,7 @@ resource "aws_route53_record" "migration_root_a" {
   type    = "A"
 
   alias {
-    name                   = "d3bc8xw8h6tjpo.cloudfront.net"
+    name                   = "dzko78sb9x1jm.cloudfront.net"
     zone_id                = "Z2FDTNDATAQYW2"
     evaluate_target_health = false
   }
@@ -26,7 +26,7 @@ resource "aws_route53_record" "migration_root_aaaa" {
   type    = "AAAA"
 
   alias {
-    name                   = "d3bc8xw8h6tjpo.cloudfront.net"
+    name                   = "dzko78sb9x1jm.cloudfront.net"
     zone_id                = "Z2FDTNDATAQYW2"
     evaluate_target_health = false
   }
@@ -86,4 +86,15 @@ resource "aws_route53_record" "legacy_acm_validation" {
   type    = "CNAME"
   ttl     = each.value.ttl
   records = [each.value.value]
+}
+
+resource "aws_route53_record" "apex_cloudfront_ownership" {
+  zone_id = aws_route53_zone.site.zone_id
+  name    = "_.hmsdev.click"
+  type    = "TXT"
+  ttl     = 60
+
+  records = [
+    "dzko78sb9x1jm.cloudfront.net"
+  ]
 }

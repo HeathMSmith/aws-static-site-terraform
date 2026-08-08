@@ -11,11 +11,13 @@ module "static_site" {
   environment = "prod"
 
   domain_name            = "hmsdev.click"
-  alternate_domain_names = ["*.hmsdev.click", "migration.hmsdev.click"]
+  alternate_domain_names = ["migration.hmsdev.click", "www.hmsdev.click"]
   dns_alias_names        = ["migration.hmsdev.click"]
-  certificate_sans       = ["*.hmsdev.click", "www.hmsdev.click", "migration.hmsdev.click"]
+  certificate_sans       = ["www.hmsdev.click", "migration.hmsdev.click"]
   hosted_zone_id         = aws_route53_zone.site.zone_id
-  enable_apex_redirect   = false
+  enable_apex_redirect   = true
+  enable_apex_alias      = true
+  enable_apex_dns        = false
 
   site_bucket_name = var.site_bucket_name
   site_source_path = "../../../site"

@@ -122,7 +122,7 @@ resource "aws_cloudfront_distribution" "redirect" {
   count   = var.enable_apex_redirect ? 1 : 0
   enabled = true
 
-  aliases = var.enable_apex_redirect ? [var.domain_name] : []
+  aliases = var.enable_apex_alias ? [var.domain_name] : []
 
   origin {
     domain_name = "www.example.com"
