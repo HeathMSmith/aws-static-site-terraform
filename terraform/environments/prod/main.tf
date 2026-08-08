@@ -1,6 +1,4 @@
 module "static_site" {
-  count = var.deploy_static_site ? 1 : 0
-
   source = "../../modules/static-site"
 
   providers = {
@@ -25,4 +23,9 @@ module "static_site" {
   tags = {
     Environment = "prod"
   }
+}
+
+moved {
+  from = module.static_site[0]
+  to   = module.static_site
 }
