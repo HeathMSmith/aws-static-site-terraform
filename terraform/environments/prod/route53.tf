@@ -38,7 +38,7 @@ resource "aws_route53_record" "migration_www_a" {
   type    = "A"
 
   alias {
-    name                   = "d3d77k7hvj1ch.cloudfront.net"
+    name                   = "d3unb35rmr9g0x.cloudfront.net"
     zone_id                = "Z2FDTNDATAQYW2"
     evaluate_target_health = false
   }
@@ -50,7 +50,7 @@ resource "aws_route53_record" "migration_www_aaaa" {
   type    = "AAAA"
 
   alias {
-    name                   = "d3d77k7hvj1ch.cloudfront.net"
+    name                   = "d3unb35rmr9g0x.cloudfront.net"
     zone_id                = "Z2FDTNDATAQYW2"
     evaluate_target_health = false
   }
