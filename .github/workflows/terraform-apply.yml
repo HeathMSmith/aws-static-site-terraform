@@ -15,9 +15,11 @@ on:
 jobs:
   apply:
     runs-on: ubuntu-latest
-
-    # Enables approval gates via GitHub Environments
     environment: ${{ github.event.inputs.environment }}
+
+    env:
+      TF_VAR_hosted_zone_id: ${{ vars.TF_VAR_HOSTED_ZONE_ID }}
+      TF_VAR_site_bucket_name: ${{ vars.TF_VAR_SITE_BUCKET_NAME }}
 
     permissions:
       id-token: write
@@ -38,16 +40,13 @@ jobs:
           terraform-version: "1.15.3"
           aws-region: ${{ vars.AWS_REGION }}
           role-to-assume: ${{ vars.AWS_ROLE_ARN }}
-          
-      # Deterministic plan
+
       - name: Terraform Plan
         run: terraform plan -out=tfplan
 
-      # Apply EXACT plan
       - name: Terraform Apply
         run: terraform apply -auto-approve tfplan
 
-      # CloudFront invalidation (already working for you)
       - name: Invalidate CloudFront Cache
         run: |
           echo "Invalidating CloudFront for environment: ${{ github.event.inputs.environment }}"
@@ -55,5 +54,5 @@ jobs:
           DISTRIBUTION_ID=$(terraform output -raw cloudfront_distribution_id)
 
           aws cloudfront create-invalidation \
-            --distribution-id $DISTRIBUTION_ID \
+            --distribution-id "$DISTRIBUTION_ID" \
             --paths "/index.html" "/app.js" "/assets/*"
