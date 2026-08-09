@@ -50,14 +50,14 @@
         <div class="hero-copy">
           <p class="badge">Mid-Coast Maine • AWS • Terraform • Automation</p>
           <h1>
-            Cloud engineering with a
-            <span class="accent">Maine coastal</span> calm — and production-grade discipline.
+            AWS cloud architecture built with
+            <span class="accent">security, automation,</span> and production discipline.
           </h1>
-
           <p class="lead">
-            I build secure, cost-aware AWS infrastructure using Infrastructure as Code.
-            This site showcases projects designed to demonstrate real-world architecture patterns
-            (global distribution, least-privilege IAM, resiliency, and clean delivery workflows).
+            I design and build AWS infrastructure with Terraform, emphasizing secure defaults,
+            repeatable delivery, operational simplicity, and cost-aware architecture. This
+            portfolio highlights the systems I've built and the architectural decisions behind
+            them.
           </p>
 
           <div class="hero-actions">
@@ -68,15 +68,17 @@
           <div class="hero-metrics" role="list" aria-label="Highlights">
             <div class="metric" role="listitem">
               <div class="metric-title">Focus</div>
-              <div class="metric-value">AWS + IaC</div>
+              <div class="metric-value">AWS Architecture</div>
             </div>
+
             <div class="metric" role="listitem">
-              <div class="metric-title">Strengths</div>
+              <div class="metric-title">Infrastructure</div>
+              <div class="metric-value">Terraform + GitHub Actions</div>
+            </div>
+
+            <div class="metric" role="listitem">
+              <div class="metric-title">Priorities</div>
               <div class="metric-value">Security • Reliability • Cost</div>
-            </div>
-            <div class="metric" role="listitem">
-              <div class="metric-title">Portfolio</div>
-              <div class="metric-value">Terraform-first builds</div>
             </div>
           </div>
         </div>
@@ -86,28 +88,29 @@
             <div class="dot dot-red"></div>
             <div class="dot dot-yellow"></div>
             <div class="dot dot-green"></div>
-            <div class="hero-card-title">Current build • In progress</div>
+            <div class="hero-card-title">Featured architecture • Deployed</div>
           </div>
 
           <div class="hero-card-body">
             <h3>AI-Powered Serverless Application</h3>
 
             <p>
-              Terraform-managed AWS architecture integrating Bedrock-based inference
-              with API Gateway and Lambda for scalable, secure AI-driven workflows.
+              A Terraform-managed serverless application integrating Amazon Bedrock
+              with API Gateway, Lambda, DynamoDB, and a CloudFront-delivered frontend.
             </p>
 
             <ul class="bullets">
-              <li>Serverless inference via API Gateway + Lambda</li>
-              <li>IAM boundaries for secure model access</li>
-              <li>Terraform-managed infrastructure</li>
-              <li>Cost-aware and event-driven design</li>
+              <li>Generative AI inference with Amazon Bedrock</li>
+              <li>Serverless API with API Gateway + Lambda</li>
+              <li>Encrypted persistence with DynamoDB + KMS</li>
+              <li>Automated Terraform delivery with GitHub Actions + OIDC</li>
             </ul>
 
             <div class="pill-row">
               <span class="pill">Bedrock</span>
               <span class="pill">Lambda</span>
               <span class="pill">API Gateway</span>
+              <span class="pill">DynamoDB</span>
               <span class="pill">Terraform</span>
             </div>
           </div>
@@ -127,25 +130,213 @@
     <!-- Projects -->
     <section id="projects" class="section">
       <div class="section-head">
-        <h2>Portfolio projects</h2>
+        <h2>Featured Architectures</h2>
         <p>
-          Real architectures, documented decisions, and IaC you can review. Each project includes:
-          a clear problem statement, diagram, build steps, and lessons learned.
+          Selected AWS projects that demonstrate infrastructure design, security,
+          automation, resiliency, and production-focused engineering practices.
         </p>
       </div>
 
-      <div class="grid cards" id="repo-grid">
-        <!-- dynamically populated -->
+      <div class="grid featured-architectures">
+
+        <!-- AI Serverless Application -->
+        <article class="card architecture-card">
+          <div class="card-top">
+            <span class="tag tag-primary">Serverless</span>
+            <span class="tag">Generative AI</span>
+          </div>
+
+          <h3>AI-Powered Serverless Application</h3>
+
+          <p>
+            A cloud-native application integrating Amazon Bedrock with a serverless
+            API and encrypted persistence layer, deployed entirely through Terraform.
+          </p>
+
+          <div class="architecture-focus">
+            <strong>Architecture focus</strong>
+            <span>
+              Serverless design, generative AI integration, encryption,
+              least-privilege access, and automated infrastructure delivery.
+            </span>
+          </div>
+
+          <div class="pill-row">
+            <span class="pill">Bedrock</span>
+            <span class="pill">Lambda</span>
+            <span class="pill">API Gateway</span>
+            <span class="pill">DynamoDB</span>
+            <span class="pill">KMS</span>
+            <span class="pill">Terraform</span>
+          </div>
+
+          <div class="card-actions">
+            <a class="btn btn-sm" href="https://github.com/HeathMSmith/aws-ai-serverless-app" target="_blank"
+              rel="noopener noreferrer">
+              View Project
+            </a>
+          </div>
+        </article>
+
+
+        <!-- Three-Tier Architecture -->
+        <article class="card architecture-card">
+          <div class="card-top">
+            <span class="tag tag-primary">Infrastructure</span>
+            <span class="tag">High Availability</span>
+          </div>
+
+          <h3>Highly Available Three-Tier AWS Architecture</h3>
+
+          <p>
+            A multi-AZ AWS environment separating web, application, and database
+            tiers with scalable compute, managed database services, and private
+            administration paths.
+          </p>
+
+          <div class="architecture-focus">
+            <strong>Architecture focus</strong>
+            <span>
+              Multi-AZ design, network segmentation, Auto Scaling, private
+              connectivity, secrets management, and failure-aware architecture.
+            </span>
+          </div>
+
+          <div class="pill-row">
+            <span class="pill">VPC</span>
+            <span class="pill">ALB</span>
+            <span class="pill">Auto Scaling</span>
+            <span class="pill">RDS</span>
+            <span class="pill">SSM</span>
+            <span class="pill">Terraform</span>
+          </div>
+
+          <div class="card-actions">
+            <a class="btn btn-sm" href="https://github.com/HeathMSmith/terraform-aws-3tier-vpc-ha" target="_blank"
+              rel="noopener noreferrer">
+              View Project
+            </a>
+          </div>
+        </article>
+
+
+        <!-- Static Website -->
+        <article class="card architecture-card">
+          <div class="card-top">
+            <span class="tag tag-primary">Web Delivery</span>
+            <span class="tag">CI/CD</span>
+          </div>
+
+          <h3>Production Static Website Platform</h3>
+
+          <p>
+            A globally distributed static website using private Amazon S3 origins,
+            CloudFront, TLS, DNS, and Terraform-managed development and production
+            environments.
+          </p>
+
+          <div class="architecture-focus">
+            <strong>Architecture focus</strong>
+            <span>
+              Private origins, HTTPS delivery, DNS, infrastructure automation,
+              environment isolation, and controlled production deployments.
+            </span>
+          </div>
+
+          <div class="pill-row">
+            <span class="pill">S3</span>
+            <span class="pill">CloudFront</span>
+            <span class="pill">Route 53</span>
+            <span class="pill">ACM</span>
+            <span class="pill">GitHub Actions</span>
+            <span class="pill">Terraform</span>
+          </div>
+
+          <div class="card-actions">
+            <a class="btn btn-sm" href="https://github.com/HeathMSmith/aws-static-site-terraform" target="_blank"
+              rel="noopener noreferrer">
+              View Project
+            </a>
+          </div>
+        </article>
+
+
+        <!-- Image Processing Pipeline -->
+        <article class="card architecture-card">
+          <div class="card-top">
+            <span class="tag tag-primary">Event Driven</span>
+            <span class="tag">Serverless</span>
+          </div>
+
+          <h3>Serverless Image Processing Pipeline</h3>
+
+          <p>
+            An event-driven image processing workflow that automatically transforms
+            uploaded objects using AWS Lambda and persists processed output in
+            Amazon S3.
+          </p>
+
+          <div class="architecture-focus">
+            <strong>Architecture focus</strong>
+            <span>
+              Event-driven processing, fault handling, dead-letter recovery,
+              idempotency, and serverless operational patterns.
+            </span>
+          </div>
+
+          <div class="pill-row">
+            <span class="pill">S3</span>
+            <span class="pill">Lambda</span>
+            <span class="pill">SQS</span>
+            <span class="pill">Python</span>
+            <span class="pill">Terraform</span>
+          </div>
+
+          <div class="card-actions">
+            <a class="btn btn-sm" href="https://github.com/HeathMSmith/aws-serverless-image-pipeline" target="_blank"
+              rel="noopener noreferrer">
+              View Project
+            </a>
+          </div>
+        </article>
+
       </div>
+
+
+      <!-- Dynamic GitHub Projects -->
+      <div class="project-repositories">
+        <div class="section-head project-subhead">
+          <h2>More Projects on GitHub</h2>
+          <p>
+            Additional portfolio repositories are loaded directly from GitHub and
+            reflect the projects I am actively maintaining and developing.
+          </p>
+        </div>
+
+        <div class="grid cards" id="repo-grid">
+          <!-- dynamically populated -->
+        </div>
+      </div>
+
 
       <div class="callout">
         <div class="callout-inner">
-          <h3>What makes these “portfolio-grade”</h3>
+          <h3>Engineering approach</h3>
           <ul>
-            <li><strong>IaC-first:</strong> Terraform structure mirrors real teams (separated files, consistent
-              tagging).</li>
-            <li><strong>Security posture:</strong> private origins, least privilege, explicit trust boundaries.</li>
-            <li><strong>Operational thinking:</strong> teardown steps, cost controls, and documented tradeoffs.</li>
+            <li>
+              <strong>Infrastructure as Code:</strong>
+              AWS environments are defined and managed with Terraform.
+            </li>
+            <li>
+              <strong>Security by design:</strong>
+              architectures favor private resources, least-privilege access,
+              encryption, and explicit trust boundaries.
+            </li>
+            <li>
+              <strong>Operational discipline:</strong>
+              projects include deployment validation, teardown strategies,
+              cost considerations, and documented architectural tradeoffs.
+            </li>
           </ul>
         </div>
       </div>
@@ -153,53 +344,43 @@
 
     <section id="next" class="section section-alt">
       <div class="section-head">
-        <h2>What I’m Building Next</h2>
+        <h2>Portfolio Roadmap</h2>
         <p>
-          Focused areas I’m actively developing to deepen real-world AWS architecture and operational experience.
+          The next phase of this portfolio focuses on operational resilience:
+          testing how deployed architectures behave under failure and how they recover.
         </p>
       </div>
 
-      <div class="grid cards">
+      <div class="roadmap-panel">
 
-        <div class="card">
+        <div class="roadmap-content">
           <div class="card-top">
-            <span class="tag tag-primary">Next</span>
-            <span class="tag">AI</span>
-          </div>
-
-          <h3>AI-Powered Serverless Application (Terraform)</h3>
-
-          <p>
-            Building a serverless application leveraging AWS AI services (Bedrock / SageMaker)
-            deployed entirely via Terraform. Focused on integrating inference APIs, secure IAM boundaries,
-            and scalable event-driven architecture.
-          </p>
-
-          <div class="pill-row">
-            <span class="pill">AWS Bedrock</span>
-            <span class="pill">Lambda</span>
-            <span class="pill">API Gateway</span>
-            <span class="pill">Terraform</span>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-top">
-            <span class="tag tag-primary">Next</span>
-            <span class="tag">Resilience</span>
+            <span class="tag tag-primary">Coming Next</span>
+            <span class="tag">Reliability Engineering</span>
           </div>
 
           <h3>Failure Testing & Recovery Patterns</h3>
 
           <p>
-            Simulating failure scenarios across multi-AZ architectures and validating recovery
-            strategies (RTO/RPO) with documented runbooks and architecture decisions.
+            A reliability engineering project focused on validating how AWS
+            architectures behave during controlled failure scenarios, documenting
+            recovery procedures, and measuring operational resilience.
           </p>
 
+          <div class="architecture-focus">
+            <strong>Planned focus</strong>
+            <span>
+              Multi-AZ failover, instance replacement, dependency failures,
+              health checks, alarms, recovery validation, and documented runbooks.
+            </span>
+          </div>
+
           <div class="pill-row">
-            <span class="pill">High Availability</span>
-            <span class="pill">Failover</span>
-            <span class="pill">Monitoring</span>
-            <span class="pill">Recovery</span>
+            <span class="pill">CloudWatch</span>
+            <span class="pill">Auto Scaling</span>
+            <span class="pill">RDS</span>
+            <span class="pill">Route 53</span>
+            <span class="pill">Terraform</span>
           </div>
         </div>
 
@@ -209,27 +390,63 @@
     <!-- Skills -->
     <section id="skills" class="section section-alt">
       <div class="section-head">
-        <h2>Skills</h2>
-        <p>Core areas I focus on while building and operating cloud infrastructure.</p>
+        <h2>Skills & Technical Focus</h2>
+        <p>
+          Technologies and architectural practices I use to design, automate,
+          secure, and operate AWS environments.
+        </p>
       </div>
 
       <div class="grid skills">
+
         <div class="skill">
           <h3>Infrastructure as Code</h3>
-          <p>Terraform modules, remote state patterns, clean diffs, and repeatable deployments.</p>
+          <p>
+            Terraform modules, remote state, reusable environments,
+            lifecycle management, and repeatable infrastructure deployment.
+          </p>
         </div>
+
         <div class="skill">
-          <h3>Networking & Delivery</h3>
-          <p>VPC design, routing, security groups, CloudFront caching, DNS patterns.</p>
+          <h3>AWS Networking & Architecture</h3>
+          <p>
+            VPC design, subnetting, routing, load balancing, Auto Scaling,
+            VPC endpoints, Route 53, and CloudFront delivery patterns.
+          </p>
         </div>
+
         <div class="skill">
-          <h3>Security</h3>
-          <p>Least privilege IAM, private origins, encryption, and guardrails.</p>
+          <h3>Security & Identity</h3>
+          <p>
+            IAM least privilege, GitHub Actions OIDC federation, KMS encryption,
+            Secrets Manager, private origins, and SSM-based administration.
+          </p>
         </div>
+
         <div class="skill">
-          <h3>Reliability</h3>
-          <p>Multi-AZ architecture, failure modes, and practical operational runbooks.</p>
+          <h3>CI/CD & Automation</h3>
+          <p>
+            GitHub Actions, Terraform plan/apply/destroy workflows,
+            protected environments, deployment approvals, and automated validation.
+          </p>
         </div>
+
+        <div class="skill">
+          <h3>Serverless & Application Services</h3>
+          <p>
+            Lambda, API Gateway, DynamoDB, S3 event processing,
+            SQS failure handling, and Amazon Bedrock integration.
+          </p>
+        </div>
+
+        <div class="skill">
+          <h3>Reliability & Cost Optimization</h3>
+          <p>
+            Multi-AZ design, failure-mode analysis, NAT-less architectures,
+            resource teardown strategies, and cost-aware service selection.
+          </p>
+        </div>
+
       </div>
     </section>
 
@@ -237,7 +454,10 @@
     <section id="certs" class="section">
       <div class="section-head">
         <h2>Certifications</h2>
-        <p>Current and in-progress certifications that support the portfolio work.</p>
+        <p>
+          Professional certification and current areas of technical development
+          supporting my AWS architecture work.
+        </p>
       </div>
 
       <div class="grid certs">
@@ -251,7 +471,8 @@
             </div>
 
             <div class="cert-badge">
-              <a href="https://www.credly.com/badges/a1425055-a313-412c-8d85-a40793082c71/public_url" target="_blank">
+              <a href="https://www.credly.com/badges/a1425055-a313-412c-8d85-a40793082c71/public_url" target="_blank"
+                rel="noopener noreferrer">
                 <img src="./assets/aws-saa-badge.png" alt="AWS Certified Solutions Architect Associate Badge">
               </a>
               <div class="cert-verify">Verified via Credly</div>
@@ -260,29 +481,32 @@
 
           <p>
             Validated expertise in designing secure, resilient, and cost-optimized
-            architectures on AWS, including networking, storage, compute, and IAM best practices.
+            AWS architectures, including networking, compute, storage, identity,
+            and architectural best practices.
           </p>
         </div>
 
-        <!-- CERT 2 -->
+        <!-- PROFESSIONAL DEVELOPMENT -->
         <div class="cert card">
           <div class="cert-header">
             <div>
-              <h3>AWS Certified AI Practitioner</h3>
-              <p class="muted">AIF-C01 • In Progress</p>
-            </div>
-
-            <div class="cert-badge">
-              <img src="./assets/aws-aif-c01-badge.png" alt="AWS Certified AI Practitioner Badge">
-              <div class="cert-verify">Targeting completion soon</div>
+              <h3>Professional Development</h3>
+              <p class="muted">Current areas of focus</p>
             </div>
           </div>
 
           <p>
-            Developing foundational and practical knowledge of AWS AI services,
-            including model integration, prompt design, and real-world application
-            of generative AI within cloud-native architectures.
+            Continuing to expand expertise in generative AI, Amazon Bedrock, cloud automation,
+            reliability engineering, and production-scale AWS architectures through hands-on
+            portfolio projects.
           </p>
+
+          <div class="pill-row">
+            <span class="pill">Generative AI</span>
+            <span class="pill">Amazon Bedrock</span>
+            <span class="pill">Resilience</span>
+            <span class="pill">Automation</span>
+          </div>
         </div>
 
       </div>
@@ -292,32 +516,29 @@
     <section id="about" class="section section-alt">
       <div class="section-head">
         <h2>About</h2>
-        <p>
-          I’m building a portfolio that proves I can ship AWS infrastructure the way teams operate in production:
-          secure defaults, clean IaC, and clear documentation of tradeoffs.
-        </p>
       </div>
 
       <div class="about">
-        <div class="about-card card">
-          <h3>How I build</h3>
-          <ul class="bullets">
-            <li>Start with a real problem statement</li>
-            <li>Design architecture + document tradeoffs</li>
-            <li>Implement in Terraform with clean structure</li>
-            <li>Validate with plan, deploy, verify, teardown</li>
-          </ul>
-        </div>
+        <p>
+          I'm an AWS Certified Solutions Architect with a background in private cloud
+          platforms, infrastructure automation, and quality engineering. My experience
+          spans designing reliable systems, improving operational processes, and
+          building automation that simplifies infrastructure management.
+        </p>
 
-        <div class="about-card card">
-          <h3>What you’ll see in each repo</h3>
-          <ul class="bullets">
-            <li>README with “why” decisions</li>
-            <li>Architecture diagram</li>
-            <li>Deployment steps + teardown steps</li>
-            <li>Cost notes + security considerations</li>
-          </ul>
-        </div>
+        <p>
+          This portfolio documents the AWS architectures I've designed using
+          Terraform and modern cloud-native services. Each project emphasizes
+          secure defaults, Infrastructure as Code, operational discipline,
+          and thoughtful architectural tradeoffs rather than simply demonstrating
+          individual AWS services.
+        </p>
+
+        <p>
+          I'm particularly interested in cloud infrastructure, automation,
+          serverless architectures, and designing systems that are secure,
+          resilient, cost-aware, and straightforward to operate.
+        </p>
       </div>
     </section>
 
