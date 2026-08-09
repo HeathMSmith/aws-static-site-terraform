@@ -10,23 +10,26 @@ on:
         options:
           - dev
           - prod
+
       confirm:
         description: "Type 'destroy' to confirm"
         required: true
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
-  destroy:
+  destroy-plan:
+    name: Destroy Plan
     if: github.event.inputs.confirm == 'destroy'
     runs-on: ubuntu-latest
+
     environment: ${{ github.event.inputs.environment }}
 
     env:
       TF_VAR_hosted_zone_id: ${{ vars.TF_VAR_HOSTED_ZONE_ID }}
       TF_VAR_site_bucket_name: ${{ vars.TF_VAR_SITE_BUCKET_NAME }}
-
-    permissions:
-      id-token: write
-      contents: read
 
     defaults:
       run:
@@ -51,5 +54,64 @@ jobs:
           aws-region: ${{ vars.AWS_REGION }}
           role-to-assume: ${{ vars.AWS_ROLE_ARN }}
 
-      - name: Terraform Destroy
-        run: terraform destroy -auto-approve
+      - name: Create Destroy Plan
+        run: terraform plan -destroy -out=terraform-destroy.tfplan
+
+      - name: Render Destroy Plan
+        run: terraform show -no-color terraform-destroy.tfplan | tee destroy-plan.txt
+
+      - name: Add Destroy Plan to Job Summary
+        run: |
+          {
+            echo "## Terraform Destroy Plan"
+            echo
+            echo "**Environment:** ${{ github.event.inputs.environment }}"
+            echo
+            echo '```terraform'
+            cat destroy-plan.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload Destroy Plan
+        uses: actions/upload-artifact@v4
+        with:
+          name: terraform-destroy-plan-${{ github.event.inputs.environment }}
+          path: |
+            terraform/environments/${{ github.event.inputs.environment }}/terraform-destroy.tfplan
+          retention-days: 1
+
+  destroy:
+    name: Execute Destroy
+    needs: destroy-plan
+    runs-on: ubuntu-latest
+
+    environment: ${{ github.event.inputs.environment }}
+
+    env:
+      TF_VAR_hosted_zone_id: ${{ vars.TF_VAR_HOSTED_ZONE_ID }}
+      TF_VAR_site_bucket_name: ${{ vars.TF_VAR_SITE_BUCKET_NAME }}
+
+    defaults:
+      run:
+        working-directory: terraform/environments/${{ github.event.inputs.environment }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Prepare Terraform Environment
+        uses: ./.github/actions/terraform-setup
+        with:
+          working-directory: terraform/environments/${{ github.event.inputs.environment }}
+          terraform-version: "1.15.3"
+          aws-region: ${{ vars.AWS_REGION }}
+          role-to-assume: ${{ vars.AWS_ROLE_ARN }}
+
+      - name: Download Reviewed Destroy Plan
+        uses: actions/download-artifact@v4
+        with:
+          name: terraform-destroy-plan-${{ github.event.inputs.environment }}
+          path: terraform/environments/${{ github.event.inputs.environment }}
+
+      - name: Apply Reviewed Destroy Plan
+        run: terraform apply -auto-approve terraform-destroy.tfplan
