@@ -25,13 +25,6 @@
 
 const GITHUB_USERNAME = "HeathMSmith";
 
-// Optional: control which repos show
-const featured = [
-  "aws-static-site-terraform",
-  "aws-serverless-image-pipeline",
-  "terraform-aws-modules-hms"
-];
-
 async function loadRepos() {
   try {
     const res = await fetch(
@@ -46,21 +39,18 @@ async function loadRepos() {
 
     const container = document.getElementById("repo-grid");
 
-    // Filter to only featured repos
+    // Show public portfolio repos that are not already represented
+    // in the curated Featured Architectures section.
     const filtered = repos
-      .filter(repo => repo.topics && repo.topics.includes("portfolio"))
-      .sort((a, b) => {
-        const aFeatured = a.topics?.includes("featured") ? 1 : 0;
-        const bFeatured = b.topics?.includes("featured") ? 1 : 0;
-
-        // Featured repos first
-        if (bFeatured !== aFeatured) {
-          return bFeatured - aFeatured;
-        }
-
-        // Then sort by most recently updated
-        return new Date(b.updated_at) - new Date(a.updated_at);
-      });
+      .filter(
+        repo =>
+          repo.topics &&
+          repo.topics.includes("portfolio") &&
+          !repo.topics.includes("featured")
+      )
+      .sort(
+        (a, b) => new Date(b.updated_at) - new Date(a.updated_at)
+      );
 
     container.innerHTML = filtered.map(repo => {
 
