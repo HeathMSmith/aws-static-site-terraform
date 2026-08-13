@@ -905,6 +905,10 @@ body {
   border-radius: 18px;
 }
 
+.roadmap-panel + .roadmap-panel {
+  margin-top: 24px;
+}
+
 .roadmap-content {
   max-width: 820px;
 }
