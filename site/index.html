@@ -92,25 +92,22 @@
           </div>
 
           <div class="hero-card-body">
-            <h3>AI-Powered Serverless Application</h3>
-
+            <h3>Multi-Service AWS Container Platform</h3>
             <p>
-              A Terraform-managed serverless application integrating Amazon Bedrock
-              with API Gateway, Lambda, DynamoDB, and a CloudFront-delivered frontend.
+              A reusable ECS/Fargate platform for independently deployable application
+              services with shared infrastructure and service-specific operational boundaries.
             </p>
-
             <ul class="bullets">
-              <li>Generative AI inference with Amazon Bedrock</li>
-              <li>Serverless API with API Gateway + Lambda</li>
-              <li>Encrypted persistence with DynamoDB + KMS</li>
-              <li>Automated Terraform delivery with GitHub Actions + OIDC</li>
+              <li>Private Fargate workloads with VPC endpoints</li>
+              <li>HTTPS host-based routing through a shared ALB</li>
+              <li>Per-service IAM, autoscaling, logging, and observability</li>
+              <li>Immutable ECR delivery with Git SHA provenance</li>
             </ul>
-
             <div class="pill-row">
-              <span class="pill">Bedrock</span>
-              <span class="pill">Lambda</span>
-              <span class="pill">API Gateway</span>
-              <span class="pill">DynamoDB</span>
+              <span class="pill">ECS</span>
+              <span class="pill">Fargate</span>
+              <span class="pill">ECR</span>
+              <span class="pill">Docker</span>
               <span class="pill">Terraform</span>
             </div>
           </div>
@@ -138,6 +135,42 @@
       </div>
 
       <div class="grid featured-architectures">
+
+        <!-- AWS Container Platform -->
+        <article class="card architecture-card">
+          <div class="card-top">
+            <span class="tag tag-primary">Containers</span>
+            <span class="tag">Platform Engineering</span>
+          </div>
+          <h3>Multi-Service AWS Container Platform</h3>
+          <p>
+            A reusable application platform running multiple independently deployable
+            services on Amazon ECS with AWS Fargate, using shared infrastructure where
+            appropriate and service-specific routing, IAM, scaling, and observability.
+          </p>
+          <div class="architecture-focus">
+            <strong>Architecture focus</strong>
+            <span>
+              Private Fargate networking, HTTPS host-based routing, workload isolation,
+              immutable container delivery, autoscaling, observability, and automated
+              infrastructure deployment.
+            </span>
+          </div>
+          <div class="pill-row">
+            <span class="pill">ECS</span>
+            <span class="pill">Fargate</span>
+            <span class="pill">ECR</span>
+            <span class="pill">Docker</span>
+            <span class="pill">ALB</span>
+            <span class="pill">Terraform</span>
+          </div>
+          <div class="card-actions">
+            <a class="btn btn-sm" href="https://github.com/HeathMSmith/aws-container-platform" target="_blank"
+              rel="noopener noreferrer">
+              View Project
+            </a>
+          </div>
+        </article>
 
         <!-- AI Serverless Application -->
         <article class="card architecture-card">
@@ -347,47 +380,9 @@
       <div class="section-head">
         <h2>Portfolio Roadmap</h2>
         <p>
-          The next phase of this portfolio expands into container platform engineering
-          and deeper operational resilience across AWS workloads.
+          The next phase of this portfolio focuses on deeper operational resilience
+          and failure-aware engineering across AWS workloads.
         </p>
-      </div>
-
-      <div class="roadmap-panel">
-
-        <div class="roadmap-content">
-          <div class="card-top">
-            <span class="tag tag-primary">Coming Next</span>
-            <span class="tag">Container Platform Engineering</span>
-          </div>
-
-          <h3>AWS Container Platform</h3>
-
-          <p>
-            A self-service AWS container platform focused on standardized application
-            delivery using Docker, Amazon ECR, and Amazon ECS on AWS Fargate, with
-            observability, automated deployments, and a later Kubernetes and Amazon EKS
-            implementation for architectural comparison.
-          </p>
-
-          <div class="architecture-focus">
-            <strong>Planned focus</strong>
-            <span>
-              Container image design, immutable delivery, ECS Fargate, load balancing,
-              autoscaling, health checks, observability, deployment automation, and
-              Kubernetes orchestration patterns.
-            </span>
-          </div>
-
-          <div class="pill-row">
-            <span class="pill">Docker</span>
-            <span class="pill">ECR</span>
-            <span class="pill">ECS</span>
-            <span class="pill">Fargate</span>
-            <span class="pill">Kubernetes</span>
-            <span class="pill">Terraform</span>
-          </div>
-        </div>
-
       </div>
 
       <div class="roadmap-panel">
@@ -471,10 +466,10 @@
         </div>
 
         <div class="skill">
-          <h3>Serverless & Application Services</h3>
+          <h3>Application Platforms & Services</h3>
           <p>
-            Lambda, API Gateway, DynamoDB, S3 event processing,
-            SQS failure handling, and Amazon Bedrock integration.
+            ECS, Fargate, ECR, Docker, FastAPI, Lambda, API Gateway,
+            DynamoDB, SQS, and Amazon Bedrock integration.
           </p>
         </div>
 
@@ -574,9 +569,9 @@
         </p>
 
         <p>
-          I'm particularly interested in cloud infrastructure, automation,
-          serverless architectures, and designing systems that are secure,
-          resilient, cost-aware, and straightforward to operate.
+          I'm particularly interested in cloud infrastructure, platform engineering,
+          automation, containerized and serverless architectures, and designing systems
+          that are secure, resilient, cost-aware, and straightforward to operate.
         </p>
       </div>
     </section>
