@@ -231,7 +231,7 @@ body {
   display: grid;
   grid-template-columns: 1.25fr .75fr;
   gap: 22px;
-  align-items: start;
+  align-items: center;
 }
 
 .badge {
